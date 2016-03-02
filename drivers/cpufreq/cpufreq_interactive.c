@@ -1320,8 +1320,6 @@ static int cpufreq_governor_interactive(struct cpufreq_policy *policy,
 			del_timer_sync(&pcpu->cpu_slack_timer);
 
 			if (pcpu->nr_timer_resched) {
-				if (pcpu->policy->max < pcpu->target_freq)
-					pcpu->target_freq = pcpu->policy->max;
 				if (pcpu->policy->min >= pcpu->target_freq)
 					pcpu->target_freq = pcpu->policy->min;
 				/*
